@@ -3,13 +3,17 @@ package org.example;
 import java.util.Random;
 
 public class App {
+    private static final int COUNT = 1000;
+
     public static void main(String[] args) {
-        int[] results = check(1000);
-        System.out.println("switchWins: " + results[0]);
-        System.out.println("stayWins: " + results[1]);
+        int[] results = check(COUNT);
+        int switched = results[0];
+        int stayed = results[1];
+        System.out.println("switchWins: " + switched + " - " + switched * 100 / COUNT + "%");
+        System.out.println("stayWins: " + stayed + " - " + stayed * 100 / COUNT + "%");
     }
 
-    public static int[] check(int playsCount){
+    public static int[] check(int playsCount) {
         if (playsCount <= 0) {
             throw new RuntimeException("Wrong argument!!!");
         }
